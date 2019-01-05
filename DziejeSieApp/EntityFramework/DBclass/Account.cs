@@ -41,13 +41,23 @@ namespace EntityFramework.DBclass
                 }
                 else
                 {
-                    Error Error = new Error(1, "Logowanie", "Złe dane wpisane");    //kod 1 oznacza błędne hasło
+                    var Error = new
+                    {
+                        Typ = "Logowanie",
+                        Opis = "Podany login, lub hasło nie pasują"
+
+                    };
                     return Error;
                 }
             }
             else
             {
-                Error Error = new Error(2, "Logowanie", "Złe dane wpisane");    //kod 2 oznacza brak użytkowwnika o podanym loginie
+                var Error = new
+                {
+                    Typ = "Logowanie",
+                    Opis = "Podany login, lub hasło nie pasują"
+
+                };
                 return Error;
             }
         }
@@ -90,7 +100,6 @@ namespace EntityFramework.DBclass
             {
                 var Error = new
                 {
-                    Kod = 1,
                     Typ = "Rejestracka",
                     Opis = "Podany email jest zajety"
 
@@ -101,7 +110,6 @@ namespace EntityFramework.DBclass
             {
                 var Error = new
                 {
-                    Kod = 1,
                     Typ = "Rejestracka",
                     Opis = "Podany Login jest zajety"
 
