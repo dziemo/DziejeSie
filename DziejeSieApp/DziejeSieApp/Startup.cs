@@ -78,7 +78,7 @@ namespace DziejeSieApp
             
             app.Run(async (context) =>
             {
-                await context.Response.WriteAsync("Hello World!");
+                await context.Response.WriteAsync("Am I a joke to you?");
             });
         }
     }

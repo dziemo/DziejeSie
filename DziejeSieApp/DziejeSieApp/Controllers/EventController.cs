@@ -11,12 +11,14 @@ namespace DziejeSieApp.Controllers
     public class EventController : Controller
     {
         private readonly DziejeSieContext _dbcontext;
-
+        
         public EventController(DziejeSieContext dbcontext)
         {
             _dbcontext = dbcontext;
         }
 
+
+        //Return All event
         [Route("event/all")]
         [HttpGet]
         public JsonResult AllEvent()
@@ -24,14 +26,16 @@ namespace DziejeSieApp.Controllers
             return Json(new Event(_dbcontext).AllEvent());
         }
 
+
+        // return event from one category
         [Route("event/category/{category}")]
         [HttpGet]
         public JsonResult Category(string category)
         {
             return Json(new Event(_dbcontext).EventCategory(category));
         }
-
-
+        
+        // return event from town
         [Route("event/town/{town}")]
         [HttpGet]
         public JsonResult Town(string town)
@@ -39,7 +43,7 @@ namespace DziejeSieApp.Controllers
             return Json(new Event(_dbcontext).EventTown(town));
         }
 
-        //GET: dziejeSie.com/event/{id}
+        // return one event, which have select
         [Route("event/{id}")]
         public JsonResult GetEventById(int id)
         {
